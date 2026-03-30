@@ -1,0 +1,44 @@
+### 1. Kullanıcı Kaydı (Register)
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "superowner1",
+  "email": "superowner1@test.com",
+  "password": "password123",
+  "isStoreOwner": true
+}
+
+###
+
+### 2. Giriş Yap (Login) -> Dönen JWT'yi kopyalayın
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "login": "superowner1",
+  "password": "password123"
+}
+
+###
+
+### 3. Mağaza Oluştur (Store Create) -> Authorization: Bearer {token_buraya_gelecek}
+POST http://localhost:8080/store
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcm93bmVyMSIsImlhdCI6MTc3NDg3MDk0MywiZXhwIjoxNzc0OTU3MzQzfQ.WxNGv_4AJSXzUejRgplLtgYhssPP4lMGgCzjLNgun5o
+
+{
+  "name": "Patili Dostlar"
+}
+
+###
+
+### 4. Tüm Mağazaları Listele (List All Stores)
+GET http://localhost:8080/store
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcm93bmVyMSIsImlhdCI6MTc3NDg3MDk0MywiZXhwIjoxNzc0OTU3MzQzfQ.WxNGv_4AJSXzUejRgplLtgYhssPP4lMGgCzjLNgun5o
+
+###
+
+### 5. Tek Mağaza Getir (Get Single Store - ID: 1)
+GET http://localhost:8080/store/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcm93bmVyMSIsImlhdCI6MTc3NDg3MDk0MywiZXhwIjoxNzc0OTU3MzQzfQ.WxNGv_4AJSXzUejRgplLtgYhssPP4lMGgCzjLNgun5o
