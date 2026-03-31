@@ -26,7 +26,6 @@ public class StoreController {
     private final StoreService storeService;
 
     // ─── MAĞAZA OLUŞTUR ───────────────────────────────────────────────────────
-    // POST /store
     // @PreAuthorize: metod çağrılmadan Spring Security kontrol eder.
     // "Bu kullanıcının 'STORE_OWNER' yetkisi var mı?"
     // Yoksa → 403 Forbidden otomatik döner, biz kod yazmadık.
@@ -34,13 +33,11 @@ public class StoreController {
     @PreAuthorize("hasAuthority('STORE_OWNER')")
     public ResponseEntity<StoreResponseDTO> createStore(@RequestBody @Valid StoreCreateRequestDTO dto) {
         // @RequestBody → HTTP isteğinin body'sindeki JSON'ı DTO'ya çevir
-        // @Valid → DTO üzerindeki validation kurallarını (@NotBlank, @Size) uygula
         StoreResponseDTO response = storeService.createStore(dto);
         return new ResponseEntity<>(response, HttpStatus.CREATED); // 201
     }
 
     // ─── TÜM MAĞAZALARI LİSTELE ───────────────────────────────────────────────
-    // GET /store
     // Herkes görebilir (giriş yapmış olması yeterli — JWT filter halleder)
     @GetMapping
     public ResponseEntity<List<StoreResponseDTO>> getAllStores() {
@@ -48,7 +45,6 @@ public class StoreController {
     }
 
     // ─── TEK MAĞAZA GETİR ─────────────────────────────────────────────────────
-    // GET /store/5  → id = 5
     // @PathVariable → URL'deki {id} kısmını alır
     @GetMapping("/{id}")
     public ResponseEntity<StoreResponseDTO> getStoreById(@PathVariable Long id) {

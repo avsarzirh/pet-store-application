@@ -1,107 +1,13 @@
-"2026-03-30 13:09:22,498 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Starting PetStoreApplication using Java 21.0.8 with PID 19752 (C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication\target\classes started by avsar in C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication)
-""2026-03-30 13:09:22,503 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:No active profile set, falling back to 1 default profile: "default"
-""2026-03-30 13:09:23,264 INFO  - [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2026-03-30 13:09:23,264 INFO  - [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.52]
-""2026-03-30 13:09:23,305 INFO  - [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2026-03-30 13:09:23,620 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2026-03-30 13:09:23,736 INFO  - [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48fc0211
-""2026-03-30 13:09:23,738 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2026-03-30 13:09:24,682 WARN  - [main] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-""2026-03-30 13:09:24,727 WARN  - [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2026-03-30 13:09:25,048 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Started PetStoreApplication in 2.809 seconds (process running for 2.998)
-""2026-03-30 14:06:25,349 INFO  - [http-nio-8080-exec-6] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2026-03-30 14:07:47,286 ERROR - [http-nio-8080-exec-10] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-"org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.avsarzirh.PetStoreApplication.entity.user.User.roles: could not initialize proxy - no Session
-	at org.hibernate.collection.spi.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:635)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.withTemporarySessionIfNeeded(AbstractPersistentCollection.java:219)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:614)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.read(AbstractPersistentCollection.java:138)
-	at org.hibernate.collection.spi.PersistentSet.iterator(PersistentSet.java:166)
-	at java.base/java.util.Spliterators$IteratorSpliterator.estimateSize(Spliterators.java:1959)
-	at java.base/java.util.Spliterator.getExactSizeIfKnown(Spliterator.java:414)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:508)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at com.avsarzirh.PetStoreApplication.security.service.UserDetailsImpl.build(UserDetailsImpl.java:29)
-	at com.avsarzirh.PetStoreApplication.security.service.UserDetailsServiceImpl.loadUserByUsername(UserDetailsServiceImpl.java:24)
-	at com.avsarzirh.PetStoreApplication.security.jwt.JWTAuthenticationFilter.doFilterInternal(JWTAuthenticationFilter.java:39)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-"2026-03-30 14:08:33,772 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Starting PetStoreApplication using Java 21.0.8 with PID 3764 (C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication\target\classes started by avsar in C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication)
-""2026-03-30 14:08:33,773 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:No active profile set, falling back to 1 default profile: "default"
-""2026-03-30 14:08:34,484 INFO  - [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2026-03-30 14:08:34,484 INFO  - [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.52]
-""2026-03-30 14:08:34,512 INFO  - [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2026-03-30 14:08:34,809 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2026-03-30 14:08:34,906 INFO  - [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b35c7aa
-""2026-03-30 14:08:34,908 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2026-03-30 14:08:35,787 WARN  - [main] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-""2026-03-30 14:08:35,823 WARN  - [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2026-03-30 14:08:36,146 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Started PetStoreApplication in 2.626 seconds (process running for 2.812)
-""2026-03-30 14:08:53,671 INFO  - [http-nio-8080-exec-3] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
+"2026-03-31 16:54:43,277 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Starting PetStoreApplication using Java 25.0.2 with PID 24224 (C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication\target\classes started by avsar in C:\Users\avsar\Desktop\Java Projelerim\com.avsarzirh\PetStoreApplication)
+""2026-03-31 16:54:43,280 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:No active profile set, falling back to 1 default profile: "default"
+""2026-03-31 16:54:44,182 INFO  - [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+""2026-03-31 16:54:44,182 INFO  - [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.52]
+""2026-03-31 16:54:44,214 INFO  - [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+""2026-03-31 16:54:44,605 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2026-03-31 16:54:44,733 INFO  - [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@370225c7
+""2026-03-31 16:54:44,734 INFO  - [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2026-03-31 16:54:45,818 WARN  - [main] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+""2026-03-31 16:54:45,874 WARN  - [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2026-03-31 16:54:46,248 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Started PetStoreApplication in 3.309 seconds (process running for 3.744)
+""2026-03-31 17:04:00,694 INFO  - [http-nio-8080-exec-4] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
 "

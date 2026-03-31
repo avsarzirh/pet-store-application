@@ -38,7 +38,7 @@ public class AuthService {
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword())); //Sifreyi hashledik.
         //! Roller icin UserRoleService'e gidilmeli.
-        //1. YOL - tum rolleri getirip gerekeni almak
+        //1. YOL - tum rolleri getirip gerekeni al
         /*
         List<UserRole> userRoles = userRoleService.findAllUserRoles();
 
@@ -53,24 +53,24 @@ public class AuthService {
         }
         */
 
-        //2. YOL - ihtiyacimiz olan rolu getirmek
+        //2. YOL - ihtiyacimiz olan rolu getir
         if (dto.getIsStoreOwner()) {
             user.getRoles().add(userRoleService.findUserRoleByRole(Role.STORE_OWNER));
         } else {
             user.getRoles().add(userRoleService.findUserRoleByRole(Role.CUSTOMER));
         }
 
-        //!!! 3 - Kaydi tamamlamak
+        //!!! 3 - Kaydi tamamla
         User savedUser = userService.save(user);
 
         return Map.of("message", "User created successfully.", "username", savedUser.getUsername());
     }
 
     public Map<String,?> login(UserLoginRequestDTO dto) {
-        //!!! 1 - Kullaniciyi bulmak
+        //!!! 1 - Kullanıcıyı bul
         User foundUser = userService.findByUsernameOrEmail(dto.getLogin());
 
-        //!!! 2 - Sifre dogru mu kontrol etmek
+        //!!! 2 - Şifre doğru mu kontrol et
         if (!passwordEncoder.matches(dto.getPassword(), foundUser.getPassword())) {
             throw new InvalidPasswordException("Invalid password for user: " + dto.getLogin());
         }

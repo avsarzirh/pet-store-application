@@ -53,8 +53,6 @@ public class StoreService {
     public StoreResponseDTO createStore(StoreCreateRequestDTO dto) {
 
         // İş Kuralı 1: Aynı isimde mağaza var mı?
-        // Neden burada? Çünkü bu bir iş kuralı. "Sistem mağaza isimlerinin
-        // benzersiz olmasını şart koşuyor" kararı iş mantığıdır.
         if (storeRepository.existsByName(dto.getName())) {
             throw new UniquePropertyViolationException(
                 "A store with this name already exists: " + dto.getName()
