@@ -10,4 +10,6 @@
 ""2026-03-31 16:54:45,874 WARN  - [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 ""2026-03-31 16:54:46,248 INFO  - [main] com.avsarzirh.PetStoreApplication.PetStoreApplication:Started PetStoreApplication in 3.309 seconds (process running for 3.744)
 ""2026-03-31 17:04:00,694 INFO  - [http-nio-8080-exec-4] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2026-03-31 20:33:44,000 INFO  - [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2026-03-31 20:33:44,006 INFO  - [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
 "
