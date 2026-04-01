@@ -16,6 +16,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.access.AccessDeniedException;
 import java.util.List;
 import com.avsarzirh.PetStoreApplication.exception.UniquePropertyViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import com.avsarzirh.PetStoreApplication.enums.AnimalType;
+import com.avsarzirh.PetStoreApplication.enums.Gender;
 
 @Service
 @RequiredArgsConstructor
@@ -92,11 +96,9 @@ public class PetService {
     }
 
     // ─── TÜM EVCİL HAYVANLARI LİSTELE ──────────────────────────────────────────
-    public List<PetResponseDTO> getAllPets() {
-        return petRepository.findAll()
-                .stream()
-                .map(this::toResponseDTO)
-                .toList();
+    public Page<PetResponseDTO> getAllPets(Gender gender, AnimalType type, Pageable pageable) {
+        return petRepository.findAllPetsWithFilters(gender, type, pageable)
+                .map(this::toResponseDTO);
     }
 
     // ─── TEK EVCİL HAYVAN GETİR ────────────────────────────────────────────────

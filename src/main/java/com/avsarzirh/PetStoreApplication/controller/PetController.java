@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import com.avsarzirh.PetStoreApplication.enums.AnimalType;
+import com.avsarzirh.PetStoreApplication.enums.Gender;
 
 import java.util.List;
 
@@ -28,11 +32,14 @@ public class PetController {
         return new ResponseEntity<>(createdPet, HttpStatus.CREATED); // 201
     }
 
-    // ─── 2. TÜM HAYVANLARI LİSTELE ─────────────────────────────────────────────
-    // GET /pet
+    // ─── 2. TÜM HAYVANLARI LİSTELE (SAYFALAMALI VE FİLTRELİ) ───────────────────
+    // GET /pet?page=0&size=10&gender=MALE&type=CAT
     @GetMapping
-    public ResponseEntity<List<PetResponseDTO>> getAllPets() {
-        return ResponseEntity.ok(petService.getAllPets()); // 200
+    public ResponseEntity<Page<PetResponseDTO>> getAllPets(
+            @RequestParam(required = false) Gender gender,
+            @RequestParam(required = false) AnimalType type,
+            Pageable pageable) {
+        return ResponseEntity.ok(petService.getAllPets(gender, type, pageable)); // 200
     }
 
     // ─── 3. BELİRLİ BİR HAYVANI GETİR ──────────────────────────────────────────
