@@ -34,3 +34,4 @@ build/
 
 ### Sensitive Configuration ###
 src/main/resources/application.properties
+test.http
