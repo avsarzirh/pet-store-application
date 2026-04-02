@@ -6,22 +6,22 @@ server.error.include-binding-errors=always
 server.error.include-message=always
 server.error.include-stacktrace=never
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/pet_store_db
-spring.datasource.username=techpront
-spring.datasource.password=password
+# PostgreSQL Database Configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/your_database_name
+spring.datasource.username=your_db_username
+spring.datasource.password=your_db_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true
 
+# Logging Configuration
 logging.file.name=log/pet_app.log
 logging.pattern.file= "%d %-5level - [%thread] %logger:%msg%n"
 logging.level.org.springframework=WARN
 logging.level.org.hibernate=WARN
 logging.level.com.avsarzirh=INFO
 
-# Uygulamamiz ile ilgili propertyleri istedigimiz gibi tanimlayabiliriz.
-# Ornek
-# abuzer.herhangi.bir.property=value
-app.jwtSecret=udG82zRmwp54oW4Mq2gFRAsQiXGS86PD
+# JWT Configuration
+app.jwtSecret=your_jwt_secret_key_here_min_32_chars
 app.jwtExpiartionMs=86400000
